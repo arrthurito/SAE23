@@ -1,14 +1,14 @@
-.content{
-    text-align: center;
+body{
+    background-color: #03224C;
 }
-.content h1{
+h1{
     font-size: 60px;
-    color: aliceblue;
+    color: white;
 }
 
-.content a{
+    a{
     text-decoration: none;
     display: inline-block;
-    color: aliceblue;
+    color: red;
     font-size: 24px;
 }
