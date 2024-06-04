@@ -1,0 +1,14 @@
+.content{
+    text-align: center;
+}
+.content h1{
+    font-size: 60px;
+    color: aliceblue;
+}
+
+.content a{
+    text-decoration: none;
+    display: inline-block;
+    color: aliceblue;
+    font-size: 24px;
+}
