@@ -11,14 +11,18 @@ a {
     overflow: hidden;
     position: relative;
     display: inline-block;
+    top: 200px;
+
+    left: 40%;
+    color: azure;
   }
   
   a::before,
   a::after {
-   content: '';
+    content: '';
     position: absolute;
     width: 200%;
-    left: 0;
+    
   }
   a::before {
     background-color: antiquewhite;
@@ -31,6 +35,7 @@ a {
   a::after {
     content: attr(data-replace);
     height: 100%;
+    left: 5px;
     top: 0;
     transform-origin: 100% 50%;
     transform: translate3d(200%, 0, 0);
