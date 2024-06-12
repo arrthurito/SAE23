@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($isAuthenticated) {
         // Redirection vers une page sécurisée
-        header("Location: index.html");
+        header("Location: admin.html");
         exit();
     } else {
         // Redirection vers la page d'erreur ou de connexion avec un message d'erreur
-        header("Location: index.html");
+        header("Location: erreur.html");
         exit();
     }
 }
