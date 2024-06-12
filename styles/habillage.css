@@ -16,6 +16,15 @@ h2{
     color: white;
 }
 
+.admin {
+    position: absolute;
+    top: 10px; /* Ajustez cette valeur selon votre besoin */
+    right: 10px; /* Ajustez cette valeur selon votre besoin */
+    color: #fff;
+    padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+    text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+
 .data-table {
     width: 50%;
     margin: 20px auto;
