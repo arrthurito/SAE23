@@ -1,9 +1,9 @@
 <?php
 // Informations de connexion à la base de données
 $host = 'localhost192.168.42.65'; // ou l'adresse IP du serveur MySQL
-$dbname = 'sae23';
-$username = 'bada';
-$password = 'PassadInfo';
+$dbname = 'sae23'; // 
+$username = 'root';// bada
+$password = 'sae23sqlroot';//PassadInfo
 
 try {
     // Connexion à la base de données

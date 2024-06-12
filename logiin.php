@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Informations de connexion à la base de données
-    $host = 'localhost192.168.42.65'; // ou l'adresse IP du serveur MySQL
+    $host = '192.168.42.65'; // ou l'adresse IP du serveur MySQL
     $dbname = 'sae23'; // 
     $username = 'root';// bada
     $password = 'sae23sqlroot';
