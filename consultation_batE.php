@@ -36,7 +36,7 @@
         }
         
         // Prepare the selection query
-        $sql = "SELECT * FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='humidite' AND (c.NomSalles='B103' OR c.NomSalles='B105');";  //;
+        $sql = "SELECT * FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='humidite' AND (c.NomSalles='E102' OR c.NomSalles='E103');";  //;
         $result = $conn->query($sql);
         
         if ($result === false) {
@@ -65,7 +65,7 @@
             echo "Aucune donnée trouvée";
         }
 
-        $sql = "SELECT * FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='luminosite' AND (c.NomSalles='B103' OR c.NomSalles='B105');";  //;
+        $sql = "SELECT * FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='luminosite' AND (c.NomSalles='E102' OR c.NomSalles='E103');";  //;
         $result = $conn->query($sql);
         
         if ($result === false) {
@@ -94,7 +94,7 @@
             echo "Aucune donnée trouvée";
         }
         
-        $sql = "SELECT MIN(Valeurs),MAX(Valeurs),AVG(Valeurs) FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='luminosite' AND (c.NomSalles='B103' OR c.NomSalles='B105');";  //;
+        $sql = "SELECT MIN(Valeurs),MAX(Valeurs),AVG(Valeurs) FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='luminosite' AND (c.NomSalles='E102' OR c.NomSalles='E103');";  //;
         $result = $conn->query($sql);
         
         if ($result === false) {
@@ -120,7 +120,7 @@
             echo "Aucune donnée trouvée";
         }
 
-        $sql = "SELECT MIN(Valeurs),MAX(Valeurs),AVG(Valeurs) FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='humidite' AND (c.NomSalles='B103' OR c.NomSalles='B105');";  //;
+        $sql = "SELECT MIN(Valeurs),MAX(Valeurs),AVG(Valeurs) FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='humidite' AND (c.NomSalles='E102' OR c.NomSalles='E103');";  //;
         $result = $conn->query($sql);
         
         if ($result === false) {
