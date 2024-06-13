@@ -36,7 +36,7 @@
         }
         
         // Prepare the selection query
-        $sql = "SELECT * FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='humidite';";  //;
+        $sql = "SELECT * FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='humidite' AND (c.NomSalles='B103' OR c.NomSalles='B105');";  //;
         $result = $conn->query($sql);
         
         if ($result === false) {
@@ -65,7 +65,7 @@
             echo "Aucune donnée trouvée";
         }
 
-        $sql = "SELECT * FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='luminosite';";  //;
+        $sql = "SELECT * FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='luminosite' AND (c.NomSalles='B103' OR c.NomSalles='B105');";  //;
         $result = $conn->query($sql);
         
         if ($result === false) {
@@ -94,6 +94,58 @@
             echo "Aucune donnée trouvée";
         }
         
+        $sql = "SELECT MIN(Valeurs),MAX(Valeurs),AVG(Valeurs) FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='luminosite' AND (c.NomSalles='B103' OR c.NomSalles='B105');";  //;
+        $result = $conn->query($sql);
+        
+        if ($result === false) {
+            die("Erreur dans la requête: " . $conn->error);
+        }
+        
+        // Display data in an HTML table
+        if ($result->num_rows > 0) {
+            echo "<table class='data-table' border='1'>";
+            echo "<tr><th>min</th><th>moy</th><th>max</th></tr>";
+        
+        
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["MIN(Valeurs)"] . "</td>";
+                echo "<td>" . $row["AVG(Valeurs)"] . "</td>";
+                echo "<td>" . $row["MAX(Valeurs)"] . "</td>";
+                echo "</tr>";
+            }
+        
+            echo "</table>";
+        } else {
+            echo "Aucune donnée trouvée";
+        }
+
+        $sql = "SELECT MIN(Valeurs),MAX(Valeurs),AVG(Valeurs) FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur WHERE c.TypeCapt='humidite' AND (c.NomSalles='B103' OR c.NomSalles='B105');";  //;
+        $result = $conn->query($sql);
+        
+        if ($result === false) {
+            die("Erreur dans la requête: " . $conn->error);
+        }
+        
+        // Display data in an HTML table
+        if ($result->num_rows > 0) {
+            echo "<table class='data-table' border='1'>";
+            echo "<tr><th>min</th><th>moy</th><th>max</th></tr>";
+        
+        
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["MIN(Valeurs)"] . "</td>";
+                echo "<td>" . $row["AVG(Valeurs)"] . "</td>";
+                echo "<td>" . $row["MAX(Valeurs)"] . "</td>";
+                echo "</tr>";
+            }
+        
+            echo "</table>";
+        } else {
+            echo "Aucune donnée trouvée";
+        }
+
         // Close connection
         $conn->close();
         ?>
