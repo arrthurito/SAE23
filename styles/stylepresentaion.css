@@ -6,6 +6,49 @@ h1{
     color: white;
     text-align: center;
 }
+h2, h3 {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
+  text-align: center;
+  margin: 10px auto;
+  width: 80%;
+  color: white;
+}
+
+img {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  height: auto;
+}
+
+footer {
+  padding: 20px;
+  background-color: #021634;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer a {
+  color: azure;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+footer img {
+  width: 88px;
+  height: 31px;
+  display: inline-block;
+  margin-top: 10px;
+}
 
 a {
     overflow: hidden;
