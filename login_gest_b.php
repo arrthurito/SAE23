@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Authentification réussie, démarrer la session
         $_SESSION['username'] = $username;
         $_SESSION['auth'] = true;
-        header("Location: admin.html"); // Rediriger vers la page sécurisée
+        header("Location: consultation.php"); // Rediriger vers la page sécurisée
         exit();
     } else {
         // Authentification échouée, rediriger vers la page d'erreur de connexion

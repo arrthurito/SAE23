@@ -21,9 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("La connexion a échoué: " . $conn->connect_error);
     }
 
-    // Préparer la requête SQL pour vérifier l'authentification
-    $sql = "SELECT * FROM Administration WHERE login = '$username' AND mdp = '$password'";
-    $result = $conn->query($sql);
+    // Préparer la requête SQL sécurisée pour vérifier l'authentification
+    $sql = "SELECT * FROM Administration WHERE login = ? AND mdp = ? AND id = ?"; // Ajoutez id comme condition supplémentaire
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssi", $username, $password, $id);
+
+    // Remplacez $id avec l'ID spécifique de la ligne que vous voulez sélectionner
+    $id = 1; // Remplacez par l'ID spécifique
+
+    // Exécutez la requête
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result === false) {
         die("Erreur dans la requête: " . $conn->error);
@@ -45,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Fermer la connexion
+    $stmt->close();
     $conn->close();
 }
 ?>

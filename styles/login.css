@@ -6,6 +6,19 @@ body {
     background-color: #03224C;
 }
 
+header {
+
+    position: relative; /* Positionnement relatif pour les éléments positionnés absolument */
+}
+
+.back {
+    position: absolute;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+}
 
 h2 {
     color: #333;

@@ -8,19 +8,20 @@
         <link rel="icon" href="images/Logo_IUT_Blagnac.png">
     </head>
     <body>
-        <header>
-            <h1>Données des batiments</h1>
-            <nav>
-
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="mention_legal.html">Mentions légales</a></li>
-                </ul>
-            </nav>
-            <a class="admin" href="login.html">Admin</a>
-            <a class="B" href="login_gest_b.html">Gestionnaire du batiment B</a>
-            <a class="E" href="login_gest_e.html">Gestionnaire du batiment E</a>
-        </header>
+    <header>
+        <h1>Données des batiments</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="consultation_public.php">Consultations des données</a></li>
+                <li><a href="Gestion_de_projet.html">Gestions de projets</a></li>
+                <li><a href="mention_legal.html">Mentions légales</a></li>
+            </ul>
+        </nav>
+        <a class="admin" href="login.html">Admin</a>
+        <a class="B" href="login_gest_b.html">Gestionnaire du batiment B</a>
+        <a class="E" href="login_gest_e.html">Gestionnaire du batiment E</a>
+    </header>
         <?php
         $servername = "localhost";
         $username = "sae23";

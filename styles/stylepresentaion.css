@@ -19,6 +19,61 @@ p {
   color: white;
 }
 
+.admin {
+  position: absolute;
+  top: 10px; /* Ajustez cette valeur selon votre besoin */
+  right: 10px; /* Ajustez cette valeur selon votre besoin */
+  color: #fff;
+  padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+  text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+.E{
+  position: absolute;
+  top: 10px; /* Ajustez cette valeur selon votre besoin */
+  right: 70px; /* Ajustez cette valeur selon votre besoin */
+  color: #fff;
+  padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+  text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+
+.B{
+  position: absolute;
+  top: 10px; /* Ajustez cette valeur selon votre besoin */
+  right: 270px; /* Ajustez cette valeur selon votre besoin */
+  color: #fff;
+  padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+  text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+
+header {
+  background-color: #333;
+  padding: 10px 0;
+  border-radius: 15px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+
 img {
   display: block;
   margin: 10px auto;
@@ -26,72 +81,35 @@ img {
   height: auto;
 }
 
-footer {
-  padding: 20px;
-  background-color: #021634;
-  margin-top: 40px;
+.margin{
+  margin-bottom: 15%;
 }
 
-footer a {
-  margin: 10px 0;
+footer 
+{
+  
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: 50px;
+  padding-bottom: 15px;
+  background-color: #333333;
+  color: #fff;
+  text-align: center;
 }
-
-footer img {
-  width: 88px;
-  height: 31px;
-  display: inline-block;
-  margin-top: 10px;
+footer ul li
+{
+  float: left;
+  width:33%;
+  list-style-type: none;
 }
-
-a {
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    top: 200px;
-
-    left: 40%;
-    color: azure;
-  }
-  
-  a::before,
-  a::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    
-  }
-  a::before {
-    background-color: antiquewhite;
-    height: 2px;
-    bottom: 0;
-    transform-origin: 100% 50%;
-    transform: scaleX(0);
-    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
-  }
-  a::after {
-    content: attr(data-replace);
-    height: 100%;
-    left: 5px;
-    top: 0;
-    transform-origin: 100% 50%;
-    transform: translate3d(200%, 0, 0);
-    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
-    color: antiquewhite;
-  }
-  
-  a:hover::before {
-    transform-origin: 0% 50%;
-    transform: scaleX(1);
-  }
-  a:hover::after {
-    transform: translate3d(0, 0, 0);
-  }
-  
-  a span {
-    display: inline-block;
-    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
-  }
-  
-  a:hover span {
-    transform: translate3d(-200%, 0, 0);
-  }
+footer ul li:first-child
+{
+  text-align: left;
+}
+footer ul li:last-child
+{
+  float:right;
+  text-align: right;
+}
