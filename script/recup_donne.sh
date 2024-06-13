@@ -8,9 +8,8 @@ lum=$(echo "$donne" | jq '.[0].illumination')
 salle=$(echo "$donne" | jq '.[1].room' | tr -d \")
 bat=$(echo "$donne" | jq '.[1].Building' | tr -d \")
 appareil=$(echo "$donne" | jq '.[1].deviceName' | tr -d \")
-Date=$(date +"%D")
+Date=$(date +"%Y-%m-%d")
 heure=$(date +"%T")
-echo $appareil | tr -d \"
 
 echo "$hum , $lum , $salle , $bat , $Date , $heure , $appareil"
 
