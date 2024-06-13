@@ -16,6 +16,7 @@ h2{
     color: white;
 }
 
+
 .admin {
     position: absolute;
     top: 10px; /* Ajustez cette valeur selon votre besoin */
@@ -101,4 +102,32 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
+}
+
+footer 
+{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 15px;
+  background-color: #333333;
+  color: rgb(238, 232, 232);
+  text-align: center;
+  padding: 10px 0;
+}
+footer ul li
+{
+  float: left;
+  width:33%;
+  list-style-type: none;
+}
+footer ul li:first-child
+{
+  text-align: left;
+}
+footer ul li:last-child
+{
+  float:right;
+  text-align: right;
 }
