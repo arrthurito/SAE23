@@ -1,0 +1,184 @@
+body{
+    background-color: #03224C;
+}
+h1{
+    font-size: 60px;
+    color: white;
+    text-align: center;
+}
+caption{
+    color: white;
+}
+p{
+    color: white;
+}
+h2{
+    color: white;
+}
+h3{
+    color: white;
+}h4{
+    color: white;
+}
+h5{
+    color: white;
+}
+h6{
+    color: #fff; 
+}
+
+.align{
+    text-align: center;
+}
+.h6-container {
+    display: flex;
+    justify-content: center; /* Centre les h6 horizontalement */
+    gap: 40px; /* Espace entre chaque h6 */
+}
+
+/* Centrer le h2 et le h3 */
+section h2, section h3 {
+    text-align: center;
+}
+
+/* Style pour les div contenant h4 et h5 */
+.batiment {
+    width: 400px;
+    margin: 20px auto; /* Centre le bloc horizontalement */
+    padding: 10px; /* Espace autour du texte */
+    border-radius: 10px; /* Bords arrondis */
+    background-color: #333; /* Couleur de fond pour le bloc */
+    text-align: center; /* Centre le texte à l'intérieur du bloc */
+    color: white; /* Couleur du texte */
+}
+
+.batiment-avec-margin {
+    margin-bottom: 12%; /* Ajoute une marge inférieure uniquement à ce bloc */
+}
+
+
+/* Optionnel: style de base pour le body pour améliorer la présentation globale */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.admin {
+    position: absolute;
+    top: 10px; /* Ajustez cette valeur selon votre besoin */
+    right: 10px; /* Ajustez cette valeur selon votre besoin */
+    color: #fff;
+    padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+    text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+.E{
+    position: absolute;
+    top: 10px; /* Ajustez cette valeur selon votre besoin */
+    right: 70px; /* Ajustez cette valeur selon votre besoin */
+    color: #fff;
+    padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+    text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+
+.B{
+    position: absolute;
+    top: 10px; /* Ajustez cette valeur selon votre besoin */
+    right: 270px; /* Ajustez cette valeur selon votre besoin */
+    color: #fff;
+    padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+    text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+.data-table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.data-table caption {
+    font-size: 1.5em;
+    margin: 10px 0;
+    text-align: left;
+    font-weight: bold;
+}
+
+.data-table thead {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.data-table th, .data-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+    border-radius: 15px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.margin{
+    margin-bottom: 15%;
+  }
+
+footer 
+{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: 50px;
+  padding-bottom: 15px;
+  background-color: #333333;
+  color: #fff;
+  text-align: center;
+}
+footer ul li
+{
+  float: left;
+  width:33%;
+  list-style-type: none;
+}
+footer ul li:first-child
+{
+  text-align: left;
+}
+footer ul li:last-child
+{
+  float:right;
+  text-align: right;
+}

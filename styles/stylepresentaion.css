@@ -1,0 +1,115 @@
+body{
+    background-color: #03224C;
+}
+h1{
+    font-size: 60px;
+    color: white;
+    text-align: center;
+}
+h2, h3 {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
+  text-align: center;
+  margin: 10px auto;
+  width: 80%;
+  color: white;
+}
+
+.admin {
+  position: absolute;
+  top: 10px; /* Ajustez cette valeur selon votre besoin */
+  right: 10px; /* Ajustez cette valeur selon votre besoin */
+  color: #fff;
+  padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+  text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+.E{
+  position: absolute;
+  top: 10px; /* Ajustez cette valeur selon votre besoin */
+  right: 70px; /* Ajustez cette valeur selon votre besoin */
+  color: #fff;
+  padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+  text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+
+.B{
+  position: absolute;
+  top: 10px; /* Ajustez cette valeur selon votre besoin */
+  right: 270px; /* Ajustez cette valeur selon votre besoin */
+  color: #fff;
+  padding: 5px 10px; /* Ajout d'un padding pour le confort visuel, optionnel */
+  text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+}
+
+header {
+  background-color: #333;
+  padding: 10px 0;
+  border-radius: 15px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+
+img {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  height: auto;
+}
+
+.margin{
+  margin-bottom: 15%;
+}
+
+footer 
+{
+  
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: 50px;
+  padding-bottom: 15px;
+  background-color: #333333;
+  color: #fff;
+  text-align: center;
+}
+footer ul li
+{
+  float: left;
+  width:33%;
+  list-style-type: none;
+}
+footer ul li:first-child
+{
+  text-align: left;
+}
+footer ul li:last-child
+{
+  float:right;
+  text-align: right;
+}
