@@ -27,6 +27,9 @@ h6{
     color: #fff; 
 }
 
+.align{
+    text-align: center;
+}
 .h6-container {
     display: flex;
     justify-content: center; /* Centre les h6 horizontalement */
@@ -46,7 +49,13 @@ section h2, section h3 {
     border-radius: 10px; /* Bords arrondis */
     background-color: #333; /* Couleur de fond pour le bloc */
     text-align: center; /* Centre le texte à l'intérieur du bloc */
+    color: white; /* Couleur du texte */
 }
+
+.batiment-avec-margin {
+    margin-bottom: 12%; /* Ajoute une marge inférieure uniquement à ce bloc */
+}
+
 
 /* Optionnel: style de base pour le body pour améliorer la présentation globale */
 body {
@@ -148,6 +157,7 @@ footer
   left: 0;
   bottom: 0;
   width: 100%;
+  margin-top: 50px;
   padding-bottom: 15px;
   background-color: #333333;
   color: #fff;
