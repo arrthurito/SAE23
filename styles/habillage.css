@@ -24,6 +24,27 @@ h5{
     color: white;
 }
 
+/* Centrer le h2 et le h3 */
+section h2, section h3 {
+    text-align: center;
+}
+
+/* Style pour les h4 et h5 */
+section h4, section h5 {
+    width: fit-content;
+    margin: 0 auto; /* Centre le bloc horizontalement */
+    padding: 10px; /* Espace autour du texte */
+    border-radius: 10px; /* Bords arrondis */
+    background-color: #f0f0f0; /* Couleur de fond pour le bloc */
+    text-align: center; /* Centre le texte à l'intérieur du bloc */
+}
+
+/* Optionnel: style de base pour le body pour améliorer la présentation globale */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
 .admin {
     position: absolute;
     top: 10px; /* Ajustez cette valeur selon votre besoin */
