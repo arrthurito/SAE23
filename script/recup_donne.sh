@@ -10,6 +10,7 @@ heure=$(date +"%T")
 
 echo "$hum , $lum , $salle , $bat , $Date , $heure , $appareil"
 
+#data are send to the database
 /opt/lampp/bin/mysql -h"localhost" -u"sae23" -p"sae23" "sae23" -e"
 INSERT INTO Mesures (Date,Horaires,Valeurs,NomCapteur) VALUES ('$Date','$heure','$lum','$appareil\lum');
 INSERT INTO Mesures (Date,Horaires,Valeurs,NomCapteur) VALUES ('$Date','$heure','$hum','$appareil\hum');"
