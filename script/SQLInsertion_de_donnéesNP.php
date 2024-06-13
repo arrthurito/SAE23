@@ -4,15 +4,15 @@ $username = "sae23";
 $password = "sae23";
 $dbname = "sae23";
 
-// Créer une connexion
+// Create a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Vérifier la connexion
+// Check the connection
 if ($conn->connect_error) {
     die("La connexion a échoué: " . $conn->connect_error);
 }
 
-// Préparer la requête de sélection
+// Prepare the selection query
 $sql = "SELECT * FROM Mesures m INNER JOIN Capteurs c ON c.NomCapteur = m.NomCapteur";  //;
 $result = $conn->query($sql);
 
@@ -20,7 +20,7 @@ if ($result === false) {
     die("Erreur dans la requête: " . $conn->error);
 }
 
-// Afficher les données dans une table HTML
+// Display data in an HTML table
 if ($result->num_rows > 0) {
     echo "<table border='1'>";
     echo "<tr><th>TypeCapt</th><th>Valeurs</th><th>Unites</th><th>Horaires</th><th>Date</th><th>Nomcapteur</th></tr>";
@@ -42,6 +42,6 @@ if ($result->num_rows > 0) {
     echo "Aucune donnée trouvée";
 }
 
-// Fermer la connexion
+// Close connection
 $conn->close();
 ?>
