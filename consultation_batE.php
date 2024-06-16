@@ -1,58 +1,58 @@
 <?php
 session_start();
 
-// Vérifier si le formulaire a été soumis
+// Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer le login et le mot de passe depuis le formulaire
+    // Retrieve the login and password from the form
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Informations de connexion à la base de données
+    // Database connection information
     $servername = "localhost";
     $dbusername = "sae23";
     $dbpassword = "sae23";
     $dbname = "sae23";
 
-    // Créer une connexion
+    // Create a connection
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-    // Vérifier la connexion
+    // Check the connection
     if ($conn->connect_error) {
-        die("La connexion a échoué: " . $conn->connect_error);
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    // Préparer la requête SQL sécurisée pour vérifier l'authentification
-    $sql = "SELECT * FROM Administration WHERE login = ? AND mdp = ? AND id = ?"; // Ajoutez id comme condition supplémentaire
+    // Prepare a secure SQL query to verify authentication
+    $sql = "SELECT * FROM Administration WHERE login = ? AND mdp = ? AND id = ?"; // Add id as an additional condition
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssi", $username, $password, $id);
 
-    // Remplacez $id avec l'ID spécifique de la ligne que vous voulez sélectionner
-    $id = 1; // Remplacez par l'ID spécifique
+    // Replace $id with the specific ID of the row you want to select
+    $id = 1; // Replace with the specific ID
 
-    // Exécutez la requête
+    // Execute the query
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result === false) {
-        die("Erreur dans la requête: " . $conn->error);
+        die("Query error: " . $conn->error);
     }
 
-    // Vérifier si l'utilisateur existe et si le mot de passe est correct
+    // Check if the user exists and if the password is correct
     if ($result->num_rows > 0) {
-        // Authentification réussie, démarrer la session
+        // Authentication successful, start the session
         $_SESSION['username'] = $username;
         $_SESSION['auth'] = true;
-        header("Location: admin.html"); // Rediriger vers la page sécurisée
+        header("Location: admin.html"); // Redirect to the secure page
         exit();
     } else {
-        // Authentification échouée, rediriger vers la page d'erreur de connexion
-        $_SESSION = array(); // Réinitialisation du tableau de session
-        session_destroy();   // Destruction de la session
-        header("Location: erreur.html"); // Rediriger vers la page d'erreur de connexion
+        // Authentication failed, redirect to the login error page
+        $_SESSION = array(); // Reset the session array
+        session_destroy();   // Destroy the session
+        header("Location: erreur.html"); // Redirect to the login error page
         exit();
     }
 
-    // Fermer la connexion
+    // Close the connection
     $stmt->close();
     $conn->close();
 }
