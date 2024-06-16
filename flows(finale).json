@@ -1,0 +1,541 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3cc11d24.ff01a2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "WARNING: please check you have started this container with a volume that is mounted to /data\\n otherwise any flow changes are lost when you redeploy or upgrade the container\\n (e.g. upgrade to a more recent node-red docker image).\\n  If you are using named volumes you can ignore this warning.\\n Double click or see info side panel to learn how to start Node-RED in Docker to save your work",
+        "info": "\nTo start docker with a bind mount volume (-v option), for example:\n\n```\ndocker run -it -p 1880:1880 -v /home/user/node_red_data:/data --name mynodered nodered/node-red\n```\n\nwhere `/home/user/node_red_data` is a directory on your host machine where you want to store your flows.\n\nIf you do not do this then you can experiment and redploy flows, but if you restart or upgrade the container the flows will be disconnected and lost. \n\nThey will still exist in a hidden data volume, which can be recovered using standard docker techniques, but that is much more complex than just starting with a named volume as described above.",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e58c3aca6bb4f3e9",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "temp",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b56ae4f47b514149",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "2b7da73bf06e4d0c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Température E106",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a626e54540b3da52",
+        "type": "influxdb out",
+        "z": "f6f2187d.f17ca8",
+        "influxdb": "361e0888beb83746",
+        "name": "influxdb out",
+        "measurement": "temperature,building=RT,room=E106",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 830,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7fbbda7639337a4a",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "temp",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b090c101d71da49d",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "2b7da73bf06e4d0c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Température E102",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "191c077a24c56f07",
+        "type": "influxdb out",
+        "z": "f6f2187d.f17ca8",
+        "influxdb": "361e0888beb83746",
+        "name": "influxdb out",
+        "measurement": "temperature,building=RT,room=E102",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 830,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e859e0654c97b395",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload[0].temperature)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 420,
+        "wires": [
+            [
+                "191c077a24c56f07",
+                "b090c101d71da49d",
+                "7fbbda7639337a4a"
+            ]
+        ]
+    },
+    {
+        "id": "028122df7902e7bb",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload[0].temperature)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 760,
+        "wires": [
+            [
+                "b7624a79e08ef02b",
+                "f79c5a1411616843",
+                "62b92acf22a776f2"
+            ]
+        ]
+    },
+    {
+        "id": "b7624a79e08ef02b",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "temp",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "62b92acf22a776f2",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "f119ed376edce353",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Température B106",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "f79c5a1411616843",
+        "type": "influxdb out",
+        "z": "f6f2187d.f17ca8",
+        "influxdb": "361e0888beb83746",
+        "name": "influxdb out",
+        "measurement": "temperature,building=INFO,room=B106",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 830,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "fc36fde15205a152",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "temp",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "e76a8e8a63ee5d5f",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "f119ed376edce353",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Température B201",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "20",
+        "diff": false,
+        "className": "",
+        "x": 810,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "d58a49efd4f802a3",
+        "type": "influxdb out",
+        "z": "f6f2187d.f17ca8",
+        "influxdb": "361e0888beb83746",
+        "name": "influxdb out",
+        "measurement": "temperature,building=INFO,room=B201",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 790,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "1ff6c030fafb9739",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload[0].temperature)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 560,
+        "wires": [
+            [
+                "d58a49efd4f802a3",
+                "e76a8e8a63ee5d5f",
+                "fc36fde15205a152"
+            ]
+        ]
+    },
+    {
+        "id": "b7817d17b8151cba",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "AM107/by-room/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9583745edc4b8368",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "c218df90a1433f3c"
+            ]
+        ]
+    },
+    {
+        "id": "c218df90a1433f3c",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "AM107/by-room/E106/data",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "AM107/by-room/E102/data",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "AM107/by-room/B201/data",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "AM107/by-room/B106/data",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 360,
+        "y": 540,
+        "wires": [
+            [
+                "e5b95ba836268630"
+            ],
+            [
+                "e859e0654c97b395"
+            ],
+            [
+                "1ff6c030fafb9739"
+            ],
+            [
+                "028122df7902e7bb"
+            ]
+        ]
+    },
+    {
+        "id": "e5b95ba836268630",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload[0].temperature)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "b56ae4f47b514149",
+                "a626e54540b3da52",
+                "e58c3aca6bb4f3e9"
+            ]
+        ]
+    },
+    {
+        "id": "2b7da73bf06e4d0c",
+        "type": "ui_group",
+        "name": "Capteurs Température",
+        "tab": "7c0109a76c30496e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "361e0888beb83746",
+        "type": "influxdb",
+        "hostname": "192.168.1.130",
+        "port": "8086",
+        "protocol": "http",
+        "database": "capteurs",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "f119ed376edce353",
+        "type": "ui_group",
+        "name": "Capteurs Température",
+        "tab": "fe90e68ef40eb9ca",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9583745edc4b8368",
+        "type": "mqtt-broker",
+        "name": "3atay",
+        "broker": "mqtt.iut-blagnac.fr",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7c0109a76c30496e",
+        "type": "ui_tab",
+        "name": "Batiment RT",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "fe90e68ef40eb9ca",
+        "type": "ui_tab",
+        "name": "Batiment INFO",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
